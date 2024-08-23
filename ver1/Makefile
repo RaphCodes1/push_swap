@@ -3,7 +3,8 @@ CFLAGS = -Wall -Wextra -Werror
 CC = cc
 RM = -rm -f
 
-SRCS = main.c error_free.c ft_split.c stack_init.c stack_utils.c
+SRCS = main.c error_free.c ft_split.c stack_init.c stack_utils.c \
+		rotate_cmd.c push_cmd.c rev_rotate_cmd.c swap_cmd.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -18,7 +19,7 @@ $(NAME): $(OBJS)
 clean:
 	$(RM) $(OBJS)
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all

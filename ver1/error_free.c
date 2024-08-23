@@ -40,9 +40,9 @@ void error_free(t_stack_node **stack, char **av, bool flag_ac_2)
 
 int error_syntax(char *s)
 {   
-    if(!(*s == '-' || *s == '+' || (*s >= '0' && *s <= '9')))
+    if(!((*s == '-' || *s == '+') || (*s >= '0' && *s <= '9')))
         return (1);
-    if((*s == '-' || *s == '+' && !(s[1] >= '0' && s[1] <= '9')))
+    if(((*s == '-' || *s == '+') && !(s[1] >= '0' && s[1] <= '9')))
         return (1);
     while(*s)
     {
