@@ -35,6 +35,7 @@ static size_t	count_tokens(char const *s, char del)
 	}
 	return (tokens);
 }
+
 static char *get_next_word(char *s, char c)
 {
 	static int cursor = 0;
@@ -48,7 +49,7 @@ static char *get_next_word(char *s, char c)
 		cursor++;
 	while((s[cursor + len] != c) && s[cursor + len])
 		len++;
-	next_word = (char *)malloc(sizeof(char *) * (size_t)len + 1);
+	next_word = malloc(sizeof(char) * (size_t)len + 1);
 	if(!next_word)
 		return (NULL);
 	while((s[cursor] != c) && s[cursor])
@@ -61,10 +62,12 @@ char **ft_split(char *s, char c)
 	char **res;
 	int i;
 	int word_count;
+	int cursor;
 
 	if(s == NULL)
 		return (NULL);
 	i = 0;
+	cursor = 0;
 	word_count = count_tokens(s,c);
 	res = (char **)malloc(sizeof(char *) * (size_t)(word_count + 2));
 	if(!res)
@@ -84,10 +87,13 @@ char **ft_split(char *s, char c)
 	res[i] = NULL;
 	return(res);
 }
+
+
 // int main(int ac, char **av)
 // {	
 // 	int i = 1;
-// 	av = ft_split("1",' ');
+// 	char *s = "HELLO WORLD fiuwehfuiwehfiuwehfuiwe 131231312 fiowjfowijfoiwejoiwejfwio";
+// 	av = ft_split(s,' ');
 // 	while(av[i])
 // 	{
 // 		printf("%s\n",av[i]);

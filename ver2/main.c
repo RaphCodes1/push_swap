@@ -18,16 +18,17 @@ int main(int ac, char **av)
     {
         res = split_modif(av);
         av = ft_split(res,' ');
+        free(res);
     }
     stack_init(&a,av + 1,ac == 2);
-    t_stack_node *tmp = a;
-    printf("Temp:");
-    while(tmp)
-    {
-        printf(" %d",tmp->value);
-        tmp = tmp->next;
-    }
-    printf("\n");
+    // t_stack_node *tmp = a;
+    // printf("Temp:");
+    // while(tmp)
+    // {
+    //     printf(" %d",tmp->value);
+    //     tmp = tmp->next;
+    // }
+    // printf("\n");
     if(!stack_sorted(a))
     {
         if(stack_len(a) == 2)
@@ -37,12 +38,12 @@ int main(int ac, char **av)
         else
             push_swap(&a,&b);
     }
-    printf("result:");
-    while(a)
-    {
-        printf(" %d",a->value);
-        a = a->next;
-    }
-    // free(res);
+    // printf("result:");
+    // while(a)
+    // {
+    //     printf(" %d",a->value);
+    //     a = a->next;
+    // }
+    // printf("\n");
     free_stack(&a);
 } 
