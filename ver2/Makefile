@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 RM = -rm -f
@@ -11,8 +11,8 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rsc $(NAME) $(OBJS)
+$(NAME):$(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@

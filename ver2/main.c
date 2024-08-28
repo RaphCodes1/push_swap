@@ -46,9 +46,12 @@ int main(int ac, char **av)
     //     a = a->next;
     // }
     // printf("\n");
-    while(av[i])
-        free(av[i++]);
-    free(av);
-    free(res);
+    if(ac > 2)
+    {
+        while(av[i])
+            free(av[i++]);
+        free(av);
+        free(res);
+    }
     free_stack(&a);
 } 
