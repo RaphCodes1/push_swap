@@ -61,6 +61,5 @@ void pa(t_stack_node **a, t_stack_node **b, bool checker);
 void pb(t_stack_node **a, t_stack_node **b, bool checker);
 
 char *split_modif(char **s);
-char **ft_splitver2(char const *s, char c);
 
 #endif
