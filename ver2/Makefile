@@ -5,7 +5,7 @@ RM = -rm -f
 
 SRCS = main.c error_free.c ft_split.c stack_init.c stack_utils.c \
 		rotate_cmd.c push_cmd.c rev_rotate_cmd.c swap_cmd.c \
-		tiny_sort.c push_swap_init.c push_swap_cmd.c split_modif.c
+		tiny_sort.c push_swap_init.c push_swap_cmd.c split_modif.c 
 
 OBJS = $(SRCS:.c=.o)
 

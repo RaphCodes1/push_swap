@@ -5,10 +5,12 @@ int main(int ac, char **av)
     t_stack_node *a;
     t_stack_node *b;
     char *res;
+    int i;
 
     a = NULL;
     b = NULL;
     res = NULL; 
+    i = 0;
 
     if(ac == 1 || (ac == 2 && !av[1][0]))
         return (1);
@@ -18,7 +20,6 @@ int main(int ac, char **av)
     {
         res = split_modif(av);
         av = ft_split(res,' ');
-        free(res);
     }
     stack_init(&a,av + 1,ac == 2);
     // t_stack_node *tmp = a;
@@ -45,5 +46,9 @@ int main(int ac, char **av)
     //     a = a->next;
     // }
     // printf("\n");
+    while(av[i])
+        free(av[i++]);
+    free(av);
+    free(res);
     free_stack(&a);
 } 

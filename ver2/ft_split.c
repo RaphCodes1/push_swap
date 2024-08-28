@@ -38,7 +38,7 @@ static size_t	count_tokens(char const *s, char del)
 
 static char *get_next_word(char *s, char c)
 {
-	static int cursor = 0;
+	static int cursor;
 	char *next_word;
 	int i;
 	int len;
@@ -62,12 +62,10 @@ char **ft_split(char *s, char c)
 	char **res;
 	int i;
 	int word_count;
-	int cursor;
 
 	if(s == NULL)
 		return (NULL);
 	i = 0;
-	cursor = 0;
 	word_count = count_tokens(s,c);
 	res = (char **)malloc(sizeof(char *) * (size_t)(word_count + 2));
 	if(!res)
