@@ -24,12 +24,12 @@ char **ft_split(char *s, char c);
 
 void free_matrix(char **av);
 void free_stack(t_stack_node **stack);
-void error_free(t_stack_node **stack, char **av, bool flag_ac_2);
+int error_free(t_stack_node **stack, char **av, bool flag_ac_2);
 int error_repetition(t_stack_node *a, int nbr);
 int error_syntax(char *s);
 
 void set_target_node(t_stack_node *a, t_stack_node *b);
-void stack_init(t_stack_node **a, char **av, bool flag_ac_2);
+int stack_init(t_stack_node **a, char **av, bool flag_ac_2 ,int ac);
 void init_nodes(t_stack_node *a, t_stack_node *b);
 void current_pos(t_stack_node *stack);
 void set_price(t_stack_node *a, t_stack_node *b);

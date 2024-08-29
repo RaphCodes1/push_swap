@@ -1,13 +1,5 @@
 #include "push_swap.h"
 
-// static int ft_strlen(char *s)
-// {
-//     int i = 0;
-//     while(s[i])
-//         i++;
-//     return (i);
-// }
-
 char *split_modif(char **s)
 {
     char *holder;

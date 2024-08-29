@@ -29,13 +29,17 @@ void free_stack(t_stack_node **stack)
     *stack = NULL;
 }
 
-void error_free(t_stack_node **stack, char **av, bool flag_ac_2)
-{
+int error_free(t_stack_node **stack, char **av, bool flag_ac_2)
+{   
     free_stack(stack);
     if(flag_ac_2)
+    {
         free_matrix(av);
-    write(1,"Error\n",6);
-    exit(1);
+        write(2,"Error\n",10);
+        exit(1);
+    }
+    write(2,"Error\n",6);
+    return (0);
 }
 
 int error_syntax(char *s)
