@@ -79,11 +79,13 @@ int	main(int ac, char **av)
 	while (next_line)
 	{
 		push_swap_cmd(&a, &b, next_line);
+		free(next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (stack_sorted(a) && stack_len(a) == len)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free(next_line);
 	free_stack(&a);
 }
