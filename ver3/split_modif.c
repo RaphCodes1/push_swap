@@ -39,6 +39,20 @@ static int modif_strlen(char **s)
 	strlen += i;
 	return(strlen);
 }
+
+static int only_space(char *s)
+{	
+	int i; 
+	i = 0;
+	while(s[i])
+	{
+		if(s[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	*split_modif(char **s)
 {
 	char	*holder;
@@ -54,8 +68,10 @@ char	*split_modif(char **s)
 	while (s[i])
 	{
 		f = 0;
+		if(only_space(s[i]))
+			error_msg_main(holder);
 		while (s[i][f])
-		{
+		{	
 			holder[x + f] = s[i][f];
 			f++;
 		}

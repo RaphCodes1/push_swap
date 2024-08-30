@@ -37,6 +37,7 @@ static long	ft_atol(char *s)
 	return (res * conv);
 }
 
+
 int	stack_init(t_stack_node **a, char **av, bool flag_ac_2)
 {
 	long	nbr;
@@ -53,7 +54,7 @@ int	stack_init(t_stack_node **a, char **av, bool flag_ac_2)
 			break;
 		}
 		nbr = ft_atol(av[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN || !(error_repetition(*a, (int)nbr)))
+		if ((nbr > INT_MAX || nbr < INT_MIN) || !(error_repetition(*a, (int)nbr)))
 		{
 			check = error_free(a, av, flag_ac_2);
 			break;
