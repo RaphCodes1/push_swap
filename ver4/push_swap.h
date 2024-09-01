@@ -32,6 +32,7 @@ typedef struct s_stack_node
 }						t_stack_node;
 
 char					**ft_split(char *s, char c);
+long					ft_atol(char *s);
 
 void					free_matrix(char **av);
 void					free_stack(t_stack_node **stack);
@@ -75,6 +76,7 @@ void					pa(t_stack_node **a, t_stack_node **b, bool checker);
 void					pb(t_stack_node **a, t_stack_node **b, bool checker);
 
 char					*split_modif(char **s);
-void 					error_msg_checker();
+void					stack_init_checker(t_stack_node **a, char **av, bool flag_ac_2);
+void					error_free_checker(t_stack_node **stack, char **av, bool flag_ac_2);
 
 #endif

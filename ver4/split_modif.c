@@ -83,20 +83,3 @@ char	*split_modif(char **s)
 	return (holder);
 }
 
-// int main()
-// {
-//     char *s = "Hello there world Hi threeeee wwgwgwgw 12114124";
-//     char **res = ft_split(s,' ');
-//     char *t = split_modif(res);
-//     printf("%s\n",s);
-
-//     int i = 0;
-//     while(i <= 7)
-//     {
-//         free(res[i]);
-//         i++;
-//     }
-//     free(res);
-//     free(t);
-
-// }

@@ -59,25 +59,6 @@ static void	push_swap_cmd(t_stack_node **a, t_stack_node **b, char *s)
 	else
 		error(a, b);
 }
-int valid_para(char **s)
-{
-	int i;
-	int f;
-
-	i = 1;
-	f = 0;
-	while(s[i])
-	{	
-		while(s[i][f])
-		{
-			if(!(s[i][f] == ' ') && !(s[i][f] >= '0' && s[i][f] <= '9'))
-				return (0);
-			f++;
-		}
-		i++;
-	}
-	return(1);
-}
 
 int	main(int ac, char **av)
 {
@@ -92,9 +73,7 @@ int	main(int ac, char **av)
 		return (0);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	if(!valid_para(av))
-		error_msg_checker();
-	stack_init(&a, av + 1, ac == 2);
+	stack_init_checker(&a, av + 1, ac == 2);
 	len = stack_len(a);
 	next_line = get_next_line(STDIN_FILENO);
 	while (next_line)

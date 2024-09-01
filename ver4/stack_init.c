@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static long	ft_atol(char *s)
+long	ft_atol(char *s)
 {
 	int		conv;
 	long	res;
@@ -67,27 +67,3 @@ int	stack_init(t_stack_node **a, char **av, bool flag_ac_2)
 	return (check);
 }
 
-// int main()
-// {
-//     t_stack_node *a;
-//     a = NULL;
-
-//     char **test = (char **)malloc(sizeof(char *) * (4 + 1));
-//     test = ft_split(str,' ');
-//     int i = 0;
-//     while(test[i])
-//         printf("list: %s\n",test[i++]);
-
-//     stack_init(&a,test + 1,2 == 2);
-//     while(a)
-//     {
-//         printf("stack: %d\n",a->value);
-//         a = a->next;
-//     }
-//     // free_matrix(test);
-//     // if(!test)
-//     //     printf("free success");
-//     // else
-//     //     printf("free fail");
-
-// }

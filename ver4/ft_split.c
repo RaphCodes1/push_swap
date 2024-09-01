@@ -86,14 +86,3 @@ char	**ft_split(char *s, char c)
 	res[i] = NULL;
 	return (res);
 }
-
-// int main(int ac, char **av)
-// {
-// 	int i = 1;
-// 	av = ft_split(s,' ');
-// 	while(av[i])
-// 	{
-// 		printf("%s\n",av[i]);
-// 		i++;
-// 	}
-// }
