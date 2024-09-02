@@ -6,7 +6,7 @@
 /*   By: rcreer <rcreer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 22:26:15 by rcreer            #+#    #+#             */
-/*   Updated: 2024/08/29 22:29:44 by rcreer           ###   ########.fr       */
+/*   Updated: 2024/09/02 19:30:04 by rcreer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-static void	error(t_stack_node **a, t_stack_node **b)
+static void	error(t_stack_node **a, t_stack_node **b, char *s)
 {
 	free_stack(a);
-	if (!*b || !b)
-		return ;
-	else
-		free_stack(b);
-	write(1, "error\n", 6);
+	free_stack(b);
+	free(s);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -57,7 +55,14 @@ static void	push_swap_cmd(t_stack_node **a, t_stack_node **b, char *s)
 	else if (ft_strcmp(s, "sb\n") == 0)
 		sb(b, true);
 	else
-		error(a, b);
+		error(a, b, s);
+}
+
+static void	error_space(char **av)
+{
+	write(2, "Error\n", 6);
+	free_av_checker(av);
+	exit(1);
 }
 
 int	main(int ac, char **av)
@@ -69,10 +74,13 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || !av[1][0])
-		return (0);
-	else if (ac == 2)
+	ac_checker_checker(ac, av);
+	if (ac == 2)
+	{
 		av = ft_split(av[1], ' ');
+		if (only_space_checker(av))
+			error_space(av);
+	}
 	stack_init_checker(&a, av + 1, ac == 2);
 	len = stack_len(a);
 	next_line = get_next_line(STDIN_FILENO);
@@ -82,9 +90,6 @@ int	main(int ac, char **av)
 		free(next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
-	if (stack_sorted(a) && stack_len(a) == len)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	ok_or_ko(a, len);
 	free_stack(&a);
 }

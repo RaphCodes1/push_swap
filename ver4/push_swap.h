@@ -6,7 +6,7 @@
 /*   By: rcreer <rcreer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 22:30:08 by rcreer            #+#    #+#             */
-/*   Updated: 2024/08/29 22:30:27 by rcreer           ###   ########.fr       */
+/*   Updated: 2024/09/02 19:29:55 by rcreer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,13 @@ void					pa(t_stack_node **a, t_stack_node **b, bool checker);
 void					pb(t_stack_node **a, t_stack_node **b, bool checker);
 
 char					*split_modif(char **s);
-void					stack_init_checker(t_stack_node **a, char **av, bool flag_ac_2);
-void					error_free_checker(t_stack_node **stack, char **av, bool flag_ac_2);
+void					stack_init_checker(t_stack_node **a, char **av,
+							bool flag_ac_2);
+void					error_free_checker(t_stack_node **stack, char **av,
+							bool flag_ac_2);
+int						only_space_checker(char **s);
+void					ac_checker_checker(int ac, char **av);
+void					ok_or_ko(t_stack_node *a, int len);
+void					free_av_checker(char **av);
 
 #endif

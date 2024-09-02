@@ -6,13 +6,13 @@
 /*   By: rcreer <rcreer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 22:30:55 by rcreer            #+#    #+#             */
-/*   Updated: 2024/08/29 22:31:38 by rcreer           ###   ########.fr       */
+/*   Updated: 2024/09/02 19:28:39 by rcreer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_av(char **s)
+void	free_av(char **s)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ static int	number_check(char *s)
 	int	i;
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (1);
 	while (s[i])
 	{
@@ -38,9 +38,9 @@ static int	number_check(char *s)
 	return (0);
 }
 
-static void algorithm(t_stack_node **a)
-{	
-	t_stack_node *b;
+static void	algorithm(t_stack_node **a)
+{
+	t_stack_node	*b;
 
 	b = NULL;
 	if (!stack_sorted(*a))
@@ -54,13 +54,13 @@ static void algorithm(t_stack_node **a)
 	}
 }
 
-static void ac_checker(int ac, char **av)
-{	
-	if(ac == 1)
+static void	ac_checker(int ac, char **av)
+{
+	if (ac == 1)
 		exit(1);
 	else if ((ac == 2 && !av[1][0]))
 	{
-		write(2,"Error\n",6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 }
@@ -72,9 +72,9 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	res = NULL;
-	ac_checker(ac,av);
+	ac_checker(ac, av);
 	if (ac == 2)
-	{	
+	{
 		res = split_modif(av);
 		if (!number_check(res))
 			error_msg_main(res);
