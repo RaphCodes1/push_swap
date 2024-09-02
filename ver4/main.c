@@ -55,8 +55,10 @@ static void algorithm(t_stack_node **a)
 }
 
 static void ac_checker(int ac, char **av)
-{
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+{	
+	if(ac == 1)
+		exit(1);
+	else if ((ac == 2 && !av[1][0]))
 	{
 		write(2,"Error\n",6);
 		exit(1);
