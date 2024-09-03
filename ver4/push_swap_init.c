@@ -96,6 +96,7 @@ void	set_cheapest(t_stack_node *b)
 			holder_best_match = b->push_price;
 			cheapest_node = b;
 		}
+		b->cheapest = false;
 		b = b->next;
 	}
 	cheapest_node->cheapest = true;
